@@ -1,15 +1,15 @@
-import { Selector } from "testcafe"
+import { Selector } from 'testcafe'
 
-fixture Getting Started
-.page http://zero.webappsecurity.com/
+fixture`Getting Started`
+    .page`https://www.demoblaze.com/`
 
-test.only("Valid login test", async t=>{
-   await t.click("#signin_button");
-   await t.debug();
-})
 
-test("Valid login test", async t=>{
-
-    //await t.debug();
- })
-
+test('Valid Sign up test'), async t => {
+    await t.click("#signin2");
+    await t.typeText("#sign-username", "mynul120");
+    await t.typeText("#sign-password", "1234567");
+    await t
+        .setNativeDialogHandler(() => true)
+        .click(Selector("button").withText("Sign up"));
+    await t.debug();
+}
